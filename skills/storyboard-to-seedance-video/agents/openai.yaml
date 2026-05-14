@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storyboard To Seedance"
+  short_description: "Two-stage storyboard-to-video prompt workflow"
+  default_prompt: "Use $storyboard-to-seedance-video to turn my character reference and video idea into a storyboard prompt and a Seedance video prompt."

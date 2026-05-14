@@ -1,0 +1,4 @@
+interface:
+  display_name: "Romantic Ink Cinema"
+  short_description: "Ink-cinema previs motion prompt system"
+  default_prompt: "Use $romantic-ink-cinema-previs to turn this emotional beat into a 15-second ink-cinema previs prompt."
