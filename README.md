@@ -98,28 +98,38 @@ ai-video-skills/
 
 ### Install with npx
 
+After this package is published to npm, install with the package name directly.
+
 Install all bundled skills into Codex:
 
 ```bash
-npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target codex
+npx agi-ruby-ai-video-skills install --target codex
 ```
 
 Install all bundled skills into Claude Code:
 
 ```bash
-npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target cc
+npx agi-ruby-ai-video-skills install --target cc
 ```
 
 Install only one skill:
 
 ```bash
-npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target codex --skill storyboard-to-seedance-video
+npx agi-ruby-ai-video-skills install --target codex --skill storyboard-to-seedance-video
 ```
 
 Overwrite an existing installation:
 
 ```bash
-npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target codex --force
+npx agi-ruby-ai-video-skills install --target codex --force
+```
+
+### Install from GitHub before npm publish
+
+If the package has not been published yet, you can still run it straight from GitHub:
+
+```bash
+npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target codex
 ```
 
 ### Manual install
@@ -187,3 +197,26 @@ git add .
 git commit -m "update skill docs"
 git push
 ```
+
+## Publish To npm
+
+When you are ready to release the package:
+
+```bash
+cd "/Users/sealos/Desktop/ai-video-skills"
+npm login
+npm publish
+```
+
+Recommended release flow:
+
+```bash
+cd "/Users/sealos/Desktop/ai-video-skills"
+npm version patch
+git push --follow-tags
+npm publish
+```
+
+Package name:
+
+- `agi-ruby-ai-video-skills`

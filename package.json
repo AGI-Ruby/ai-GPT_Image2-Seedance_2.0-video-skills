@@ -5,6 +5,14 @@
   "bin": {
     "ai-video-skills": "bin/ai-video-skills.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills.git"
+  },
+  "homepage": "https://github.com/AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills#readme",
+  "bugs": {
+    "url": "https://github.com/AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills/issues"
+  },
   "files": [
     "bin",
     "lib",
@@ -13,7 +21,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "prepublishOnly": "npm test && npm pack --dry-run"
   },
   "keywords": [
     "codex",
@@ -25,6 +34,9 @@
   ],
   "author": "AGI-Ruby",
   "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18"
   }
