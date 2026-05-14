@@ -1,4 +1,4 @@
-# AI Video Skills for GTP image 2 and Seedance 2
+# AI Video Skills for GPT image 2 and Seedance 2
 
 Reusable Codex skills for storyboard-driven video prompting, Seedance workflows, and cinematic previs.
 
