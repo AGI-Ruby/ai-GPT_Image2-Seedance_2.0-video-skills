@@ -228,6 +228,38 @@ Romantic palette:
 
 When writing timed beats, include one concise SFX line per beat.
 
+## Example Usage
+
+### Example 1: Timed Beat Breakdown
+
+```text
+Use romantic-ink-cinema-previs.
+
+Turn this 15-second romantic motion idea into a beat-by-beat previs.
+Break it into 2-second segments.
+Focus on camera choreography, body rhythm, energy interaction, spatial emotion, and SFX.
+Do not over-describe faces or costume details.
+```
+
+### Example 2: Single Generative Prompt
+
+```text
+Use romantic-ink-cinema-previs.
+
+Write one compact cinematic prompt for an image-to-video model.
+The scene should feel like longing turning into release through drifting ink light, mirrored hand movement, and lens pressure.
+Keep it poetic but operational.
+```
+
+### Example 3: Reusable Motion System
+
+```text
+Use romantic-ink-cinema-previs.
+
+Turn this relationship scene method into a reusable prompt framework.
+I want a structured format that I can reuse for different couples, different moods, and different image-to-video tools.
+```
+
 ## Acceptance Criteria
 
 Treat the skill as passing only when all of the following are true:

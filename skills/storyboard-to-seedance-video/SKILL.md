@@ -179,6 +179,52 @@ Use the reusable templates here:
 - [references/x-post-format.md](references/x-post-format.md)
 - [references/x-post-generation-guide.md](references/x-post-generation-guide.md)
 
+## Example Usage
+
+### Example 1: Character Reference + Action Concept
+
+```text
+Use storyboard-to-seedance-video.
+
+I have:
+- a fixed character reference image
+- a rough action idea
+- a final airborne ending pose
+
+Generate:
+1. a GPT Image 2 storyboard prompt
+2. a Seedance 2.0 video prompt
+3. short workflow notes explaining how to use them together
+```
+
+### Example 2: Brand Motion Concept
+
+```text
+Use storyboard-to-seedance-video.
+
+Turn this product launch idea into a storyboard-first video workflow.
+The tone should feel premium, cinematic, and controlled.
+Leave placeholders open where I have not defined exact shots yet.
+Also include negative constraints so the final video does not drift into generic ad visuals.
+```
+
+### Example 3: Prompt Share + Social Output
+
+```text
+Use storyboard-to-seedance-video.
+
+I already have:
+- a brief
+- a storyboard prompt
+- a Seedance prompt
+- a final video
+
+Generate a 3-post X/Twitter promo set:
+1. prompt-share post for the final video
+2. storyboard-share post
+3. maker-note post about what was tested and learned
+```
+
 ## Example Case
 
 The kung fu performance prompt from this conversation should be treated as an **example case**, not the only supported use.

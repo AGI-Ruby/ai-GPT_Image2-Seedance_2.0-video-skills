@@ -37,6 +37,7 @@ It also includes:
 - X/Twitter promo post format
 - X/Twitter promo post generation guide
 - a concrete kung fu example as a reference case
+- built-in example usage patterns in the skill file
 
 Best for:
 
@@ -44,6 +45,10 @@ Best for:
 - branded motion concepts
 - creator workflows that need storyboard-first control
 - repeatable `image reference + storyboard reference + video prompt` pipelines
+
+Example usage:
+
+- see [storyboard-to-seedance-video/SKILL.md](./skills/storyboard-to-seedance-video/SKILL.md#example-usage)
 
 ### `romantic-ink-cinema-previs`
 
@@ -67,6 +72,10 @@ Best for:
 - poetic image-to-video concepts
 - shot-by-shot emotional beat breakdowns
 - stylized previs with ink light, halos, drifting particles, or soft energy systems
+
+Example usage:
+
+- see [romantic-ink-cinema-previs/SKILL.md](./skills/romantic-ink-cinema-previs/SKILL.md#example-usage)
 
 ## Repository Structure
 
