@@ -1,0 +1,31 @@
+{
+  "name": "agi-ruby-ai-video-skills",
+  "version": "0.1.0",
+  "description": "Reusable Codex and Claude Code video skills with an npx installer.",
+  "bin": {
+    "ai-video-skills": "bin/ai-video-skills.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "codex",
+    "claude-code",
+    "skills",
+    "seedance",
+    "storyboard",
+    "video"
+  ],
+  "author": "AGI-Ruby",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}

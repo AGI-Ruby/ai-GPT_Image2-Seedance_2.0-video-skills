@@ -96,12 +96,41 @@ ai-video-skills/
 
 ## Install
 
-Copy one or both skill folders into your local Codex-compatible skills directory.
+### Install with npx
+
+Install all bundled skills into Codex:
+
+```bash
+npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target codex
+```
+
+Install all bundled skills into Claude Code:
+
+```bash
+npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target cc
+```
+
+Install only one skill:
+
+```bash
+npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target codex --skill storyboard-to-seedance-video
+```
+
+Overwrite an existing installation:
+
+```bash
+npx "github:AGI-Ruby/ai-GPT_Image2-Seedance_2.0-video-skills" install --target codex --force
+```
+
+### Manual install
+
+If you prefer, you can still copy one or both skill folders into your local Codex-compatible skills directory.
 
 Common locations:
 
 - `~/.agents/skills/`
 - `~/.codex/skills/`
+- `~/.claude/skills/`
 
 Example:
 
@@ -153,6 +182,7 @@ If you update the repo locally and want to publish changes:
 
 ```bash
 cd "/Users/sealos/Desktop/ai-video-skills"
+npm test
 git add .
 git commit -m "update skill docs"
 git push
