@@ -124,6 +124,18 @@ Overwrite an existing installation:
 npx agi-ruby-ai-video-skills install --target codex --force
 ```
 
+Check installation health:
+
+```bash
+npx agi-ruby-ai-video-skills doctor --target codex
+```
+
+Uninstall one skill:
+
+```bash
+npx agi-ruby-ai-video-skills uninstall --target codex --skill romantic-ink-cinema-previs
+```
+
 ### Install from GitHub before npm publish
 
 If the package has not been published yet, you can still run it straight from GitHub:

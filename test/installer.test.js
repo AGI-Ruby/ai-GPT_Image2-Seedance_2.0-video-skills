@@ -6,7 +6,9 @@ const assert = require("node:assert/strict");
 
 const {
   DEFAULT_SKILLS,
+  doctorSkills,
   installSkills,
+  uninstallSkills,
   resolveSkillNames,
   resolveTargetDirectory,
 } = require("../lib/installer");
@@ -57,4 +59,53 @@ test("installSkills requires --force before overwrite", () => {
       }),
     /--force/,
   );
+});
+
+test("doctorSkills reports missing skill in empty target directory", () => {
+  const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "ai-video-skills-"));
+
+  const report = doctorSkills({
+    target: "codex",
+    dir: tempDirectory,
+    skill: "storyboard-to-seedance-video",
+  });
+
+  assert.equal(report.targetExists, true);
+  assert.equal(report.skills.length, 1);
+  assert.equal(report.skills[0].installed, false);
+  assert.equal(report.skills[0].skillFileExists, false);
+});
+
+test("uninstallSkills removes installed skill directory", () => {
+  const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "ai-video-skills-"));
+
+  installSkills({
+    target: "codex",
+    dir: tempDirectory,
+    skill: "romantic-ink-cinema-previs",
+  });
+
+  const result = uninstallSkills({
+    target: "codex",
+    dir: tempDirectory,
+    skill: "romantic-ink-cinema-previs",
+  });
+
+  const skillDirectory = path.join(tempDirectory, "romantic-ink-cinema-previs");
+  assert.equal(result.removed.length, 1);
+  assert.equal(result.skipped.length, 0);
+  assert.equal(fs.existsSync(skillDirectory), false);
+});
+
+test("uninstallSkills skips missing skill directory", () => {
+  const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "ai-video-skills-"));
+
+  const result = uninstallSkills({
+    target: "codex",
+    dir: tempDirectory,
+    skill: "romantic-ink-cinema-previs",
+  });
+
+  assert.equal(result.removed.length, 0);
+  assert.equal(result.skipped.length, 1);
 });

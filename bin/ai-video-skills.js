@@ -2,7 +2,9 @@
 
 const {
   DEFAULT_SKILLS,
+  doctorSkills,
   installSkills,
+  uninstallSkills,
   resolveSkillNames,
   resolveTargetDirectory,
 } = require("../lib/installer");
@@ -12,6 +14,8 @@ function printHelp() {
 
 Usage:
   ai-video-skills install [options]
+  ai-video-skills uninstall [options]
+  ai-video-skills doctor [options]
   ai-video-skills list
   ai-video-skills help
 
@@ -26,6 +30,8 @@ Examples:
   ai-video-skills install --target codex
   ai-video-skills install --target cc --skill storyboard-to-seedance-video
   ai-video-skills install --dir ~/.codex/skills --force
+  ai-video-skills uninstall --target codex --skill romantic-ink-cinema-previs
+  ai-video-skills doctor --target codex
 `);
 }
 
@@ -88,7 +94,7 @@ function main() {
     return;
   }
 
-  if (command !== "install") {
+  if (!["install", "uninstall", "doctor"].includes(command)) {
     throw new Error(`Unknown command: ${command}`);
   }
 
@@ -100,11 +106,37 @@ function main() {
 
   const selectedSkills = resolveSkillNames(options.skill);
   const targetDirectory = resolveTargetDirectory(options.target, options.dir);
-  const result = installSkills(options);
 
-  console.log(`Installed ${selectedSkills.length} skill(s) to ${targetDirectory}`);
-  for (const entry of result.installed) {
-    console.log(`- ${entry.name} -> ${entry.destination}`);
+  if (command === "install") {
+    const result = installSkills(options);
+    console.log(`Installed ${selectedSkills.length} skill(s) to ${targetDirectory}`);
+    for (const entry of result.installed) {
+      console.log(`- ${entry.name} -> ${entry.destination}`);
+    }
+    return;
+  }
+
+  if (command === "uninstall") {
+    const result = uninstallSkills(options);
+    console.log(`Uninstalled ${result.removed.length} skill(s) from ${targetDirectory}`);
+    for (const entry of result.removed) {
+      console.log(`- ${entry.name} -> ${entry.destination}`);
+    }
+    for (const entry of result.skipped) {
+      console.log(`- ${entry.name} -> not installed`);
+    }
+    return;
+  }
+
+  const report = doctorSkills(options);
+  console.log(`Doctor report for ${targetDirectory}`);
+  console.log(`- target exists: ${report.targetExists ? "yes" : "no"}`);
+  for (const skill of report.skills) {
+    console.log(
+      `- ${skill.name}: ${skill.installed ? "installed" : "missing"}${
+        skill.skillFileExists ? " (SKILL.md found)" : ""
+      }`,
+    );
   }
 }
 
