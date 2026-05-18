@@ -1,6 +1,6 @@
 {
   "name": "agi-ruby-ai-video-skills",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Reusable Codex and Claude Code video skills with an npx installer.",
   "bin": {
     "ai-video-skills": "bin/ai-video-skills.js"

@@ -8,6 +8,7 @@ const {
   DEFAULT_SKILLS,
   doctorSkills,
   installSkills,
+  upgradeSkills,
   uninstallSkills,
   resolveSkillNames,
   resolveTargetDirectory,
@@ -59,6 +60,30 @@ test("installSkills requires --force before overwrite", () => {
       }),
     /--force/,
   );
+});
+
+test("upgradeSkills overwrites an existing installed skill directory", () => {
+  const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "ai-video-skills-"));
+
+  installSkills({
+    target: "codex",
+    dir: tempDirectory,
+    skill: "storyboard-to-seedance-video",
+  });
+
+  const skillDirectory = path.join(tempDirectory, "storyboard-to-seedance-video");
+  const extraFile = path.join(skillDirectory, "temp.txt");
+  fs.writeFileSync(extraFile, "stale", "utf8");
+
+  const result = upgradeSkills({
+    target: "codex",
+    dir: tempDirectory,
+    skill: "storyboard-to-seedance-video",
+  });
+
+  assert.equal(result.installed.length, 1);
+  assert.equal(fs.existsSync(extraFile), false);
+  assert.ok(fs.existsSync(path.join(skillDirectory, "SKILL.md")));
 });
 
 test("doctorSkills reports missing skill in empty target directory", () => {

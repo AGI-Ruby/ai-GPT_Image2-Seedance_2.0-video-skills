@@ -112,6 +112,18 @@ Install all bundled skills into Claude Code:
 npx agi-ruby-ai-video-skills install --target cc
 ```
 
+Upgrade all bundled skills in Codex:
+
+```bash
+npx agi-ruby-ai-video-skills upgrade --target codex
+```
+
+Upgrade a single installed skill:
+
+```bash
+npx agi-ruby-ai-video-skills upgrade --target cc --skill storyboard-to-seedance-video
+```
+
 Install only one skill:
 
 ```bash

@@ -5,6 +5,7 @@ const {
   doctorSkills,
   installSkills,
   uninstallSkills,
+  upgradeSkills,
   resolveSkillNames,
   resolveTargetDirectory,
 } = require("../lib/installer");
@@ -14,6 +15,7 @@ function printHelp() {
 
 Usage:
   ai-video-skills install [options]
+  ai-video-skills upgrade [options]
   ai-video-skills uninstall [options]
   ai-video-skills doctor [options]
   ai-video-skills list
@@ -28,6 +30,8 @@ Options:
 
 Examples:
   ai-video-skills install --target codex
+  ai-video-skills upgrade --target codex
+  ai-video-skills upgrade --target cc --skill storyboard-to-seedance-video
   ai-video-skills install --target cc --skill storyboard-to-seedance-video
   ai-video-skills install --dir ~/.codex/skills --force
   ai-video-skills uninstall --target codex --skill romantic-ink-cinema-previs
@@ -94,7 +98,7 @@ function main() {
     return;
   }
 
-  if (!["install", "uninstall", "doctor"].includes(command)) {
+  if (!["install", "upgrade", "uninstall", "doctor"].includes(command)) {
     throw new Error(`Unknown command: ${command}`);
   }
 
@@ -110,6 +114,15 @@ function main() {
   if (command === "install") {
     const result = installSkills(options);
     console.log(`Installed ${selectedSkills.length} skill(s) to ${targetDirectory}`);
+    for (const entry of result.installed) {
+      console.log(`- ${entry.name} -> ${entry.destination}`);
+    }
+    return;
+  }
+
+  if (command === "upgrade") {
+    const result = upgradeSkills(options);
+    console.log(`Upgraded ${selectedSkills.length} skill(s) in ${targetDirectory}`);
     for (const entry of result.installed) {
       console.log(`- ${entry.name} -> ${entry.destination}`);
     }
